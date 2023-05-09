@@ -1,13 +1,18 @@
-import Contact from "components/Contact/Contact";
+import PropTypes from 'prop-types';
+export default function Filter(props){
+    const { value, onChange } = props; 
+    return(
+         <label htmlFor="">Find contact by name
+        <input type="text"
+          value={value}
+          onChange={onChange}
+          />
+      </label>
+    )
+    
 
-export default function Filter(props) {
-    const { contacts, filter } = props; 
-    return (<ul> 
-        {contacts.filter(contact => (contact.name.toLowerCase())
-            .includes(filter.toLowerCase()))
-            .map(contact =>
-            <Contact key={contact.id}
-                     name={contact.name}
-                     number={contact.number}/>)}
-           </ul>)
+}
+Filter.propTypes = {
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 }

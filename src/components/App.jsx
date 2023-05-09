@@ -9,52 +9,39 @@ export default class PhoneBook extends React.Component {
        filter: ''
   }
   
-  handleChange = (e) => {
+handleChange = (e) => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value
     })
   }
-  
+deleteContacts = (id) => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact=> contact.id!==id)
+    }
+  ))
+}
  FormHandlerSubmit = (data) => {
     this.setState(prevState =>
     ({ contacts: [...prevState.contacts, data]}))
   }
-
-  handleDelete = (e) => {
-    console.log(this.state);
-    const index = this.state.contacts.findIndex(contact => contact.name === e.currentTarget.name)
-    this.setState(prevState => {
-    // console.log(prevState);
-      prevState.contacts.splice(index, 1)
-    }
-    ); 
-    
-}
+  changeFilter=(e)=> {
+    this.setState({filter: e.currentTarget.value})
+  }
   
-  render(){
+  render() {
+    const visibleContacts = this.state.contacts.filter(contact=>contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     return (<div>
       <h1> PhoneBook</h1>
       <Form onSubmit={this.FormHandlerSubmit}
             contacts={ this.state.contacts} />
 
       <h2>Contacts</h2>
-      
-      <label htmlFor="">Find contact by name
-        <input type="text"
-          name="filter"
-          value={this.state.filter}
-          onChange={this.handleChange}
-          />
-      </label>
-        
-      
-      {(this.state.filter === '')
-        ? <ContactList contacts={this.state.contacts} filter={this.state.filter} handleDelete={this.handleDelete}  />
-        : <Filter contacts={this.state.contacts} filter={this.state.filter} />}
-      
-        
-      
-    
+
+      <Filter value={this.state.filter}
+         onChange={this.changeFilter} />
+      <ContactList contacts={visibleContacts}
+        filter={this.state.filter}
+        onDeleteContacts={this.deleteContacts} />  
      
     </div>)
             
