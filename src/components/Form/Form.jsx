@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { Component } from "react";
+import css from '../Form/Form.module.css'
 export default class Form extends Component {
      state = {
       contacts: [],
@@ -41,9 +42,9 @@ export default class Form extends Component {
  
   render(){
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form  className={css.form__container} onSubmit={this.handleSubmit}>
           <label htmlFor=""> Name
-          <input
+          <input className="input"
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

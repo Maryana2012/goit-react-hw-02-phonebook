@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./Form/Form";
 import ContactList from "./ContactList/ContactList";
 import Filter from "./Filter/Filter";
+import css from '../components/App.module.css'
 
 export default class PhoneBook extends React.Component {
      state = {
@@ -34,14 +35,15 @@ deleteContacts = (id) => {
       <h1> PhoneBook</h1>
       <Form onSubmit={this.FormHandlerSubmit}
             contacts={ this.state.contacts} />
-
-      <h2>Contacts</h2>
-
+      <div className={css.container}>
+         <h2 className={css.subtitle}>Contacts</h2>
       <Filter value={this.state.filter}
          onChange={this.changeFilter} />
       <ContactList contacts={visibleContacts}
         filter={this.state.filter}
         onDeleteContacts={this.deleteContacts} />  
+      </div>
+     
      
     </div>)
             
