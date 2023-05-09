@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
 import Contact from "components/Contact/Contact";
-export default function ContactList(props) {
-   const { contacts, onDeleteContacts} = props;
+export default function ContactList({contacts,onDeleteContacts}) {
+   const { id, name, number} = contacts;
     return (<ul>
         {contacts.map(contact =>
-            <Contact key={contact.id}
-                id={contact.id}
-                name={contact.name}
-                number={contact.number}
+            <Contact key={id}
+                id={id}
+                name={name}
+                number={number}
                 onDeleteContacts={onDeleteContacts} />)}
            </ul>)
 }
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
+    name: PropTypes.string,
+    number: PropTypes.number,
+    id: PropTypes.number,
     onDeleteContacts:PropTypes.func.isRequired
 }

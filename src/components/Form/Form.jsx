@@ -6,8 +6,6 @@ export default class Form extends Component {
       name: '',
       number: ''
   }
- 
-  
 
   handleChange = (e) => {   
       this.setState({

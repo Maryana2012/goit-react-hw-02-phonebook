@@ -13,6 +13,6 @@ export default function Filter(props){
 
 }
 Filter.propTypes = {
-    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
 }
