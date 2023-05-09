@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Contact from "components/Contact/Contact";
 export default function ContactList({contacts,onDeleteContacts}) {
-   const { id, name, number} = contacts;
+//    const { id, name, number} = contacts;
     return (<ul>
         {contacts.map(contact =>
             <Contact key={contact.id}
