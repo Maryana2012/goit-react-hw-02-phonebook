@@ -32,7 +32,7 @@ deleteContacts = (id) => {
   render() {
     const visibleContacts = this.state.contacts.filter(contact=>contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
     return (<div>
-      <h1> PhoneBook</h1>
+      <h1 className={css.title}> PhoneBook</h1>
       <Form onSubmit={this.FormHandlerSubmit}
             contacts={ this.state.contacts} />
       <div className={css.container}>
