@@ -4,17 +4,17 @@ export default function ContactList({contacts,onDeleteContacts}) {
    const { id, name, number} = contacts;
     return (<ul>
         {contacts.map(contact =>
-            <Contact key={id}
-                id={id}
-                name={name}
-                number={number}
+            <Contact key={contact.id}
+                id={contact.id}
+                name={contact.name}
+                number={contact.number}
                 onDeleteContacts={onDeleteContacts} />)}
            </ul>)
 }
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
     name: PropTypes.string,
-    number: PropTypes.number,
-    id: PropTypes.number,
+    number: PropTypes.string,
+    id: PropTypes.string,
     onDeleteContacts:PropTypes.func.isRequired
 }

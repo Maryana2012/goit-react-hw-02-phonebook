@@ -6,8 +6,8 @@ export default function Contact(props) {
     </li>)
 }
 Contact.propTypes = {
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.number.isRequired,
-    onDeleteContacts: PropTypes.func.isRequired
+    id: PropTypes.string,
+    name: PropTypes.string,
+    number: PropTypes.string,
+    onDeleteContacts: PropTypes.func
 }
