@@ -38,9 +38,6 @@ export default class Form extends Component {
    
   } 
 
-
-
- 
   reset = () => {
     this.setState({name:'',number:''})
   }
