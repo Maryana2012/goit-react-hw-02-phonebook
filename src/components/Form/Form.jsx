@@ -31,10 +31,9 @@ export default class Form extends Component {
       this.setState(prevState =>({ contacts: [...prevState.contacts, user] }))
       this.props.onSubmit(user)
       this.reset()
-      
-     
+         
     }
-       }
+       
    
   } 
 
