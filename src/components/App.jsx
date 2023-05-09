@@ -21,6 +21,7 @@ export default class PhoneBook extends React.Component {
   }
 
   handleDelete = (e) => {
+    console.log(this.state);
     const index = this.state.contacts.findIndex(contact => contact.name === e.currentTarget.name)
     this.setState(prevState => {
     // console.log(prevState);

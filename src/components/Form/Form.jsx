@@ -21,7 +21,7 @@ export default class Form extends Component {
     if (this.state.contacts.some(contact => contact.name === this.state.name)) {
       alert(`is already in contacts`)
       this.reset();
-    } else {
+    } else 
        {   const user = {
         id: nanoid(),
         name: this.state.name,
