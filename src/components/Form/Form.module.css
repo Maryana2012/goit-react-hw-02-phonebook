@@ -4,5 +4,10 @@
     width: 250px;
 }
 .input{
-    width: 100px;
+    width: 200px;
+}
+.label{
+    display: block;
+    width: 50px;
+        text-align:left
 }
