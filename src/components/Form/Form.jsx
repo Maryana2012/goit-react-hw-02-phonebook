@@ -16,7 +16,7 @@ export default class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if (this.state.contacts.some(contact => contact.name === this.state.name)) {
+    if (this.props.contacts.some(contact => contact.name === this.state.name)) {
       alert(`is already in contacts`)
       this.reset();
     } else 
