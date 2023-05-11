@@ -15,32 +15,36 @@ handleChange = (e) => {
       [e.currentTarget.name]: e.currentTarget.value
     })
   }
+  
 deleteContacts = (id) => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact=> contact.id!==id)
     }
   ))
-}
+  }
+  
  FormHandlerSubmit = (data) => {
     this.setState(prevState =>
     ({ contacts: [...prevState.contacts, data]}))
   }
+  
   changeFilter=(e)=> {
     this.setState({filter: e.currentTarget.value})
   }
   
   render() {
-    const visibleContacts = this.state.contacts.filter(contact=>contact.name.toLowerCase().includes(this.state.filter.toLowerCase()))
+    const {contacts, filter}  = this.state
+    const visibleContacts =contacts.filter(contact=>contact.name.toLowerCase().includes(filter.toLowerCase()))
     return (<div>
       <h1 className={css.title}> PhoneBook</h1>
       <Form onSubmit={this.FormHandlerSubmit}
-            contacts={ this.state.contacts} />
+            contacts={ contacts} />
       <div className={css.container}>
          <h2 className={css.subtitle}>Contacts</h2>
-      <Filter value={this.state.filter}
+      <Filter value={filter}
          onChange={this.changeFilter} />
       <ContactList contacts={visibleContacts}
-        filter={this.state.filter}
+        filter={filter}
         onDeleteContacts={this.deleteContacts} />  
       </div>
      
